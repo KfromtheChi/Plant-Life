@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # route defined in main_app included here
+    # routes from main_app included here
     path('', include('main_app.urls')),
 ]
