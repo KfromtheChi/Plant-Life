@@ -2,13 +2,29 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-position: fixed;
+}
+
+body {
+    background-image: url("../images/growing.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
 }
 
 main {
   flex: 1 0 auto;
+  background-color: rgba(253, 253, 253, 0.61);
+  padding: 10px;
+}
+
+nav {
+    background-color: rgba(10, 9, 9, 0.459);
 }
 
 footer.page-footer {
+  background-color: rgba(10, 9, 9, 0.459);
   padding-top: 1;
   text-align: center;
 }
