@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from .models import Plant
+from .models import Plant, Quiz
 
 # Create your views here.
 
@@ -36,3 +36,9 @@ class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'
     success_url = '/plants/' # Redirect to the plants index page after creating a new plant
+
+# Define the submit_quiz view
+class SubmitQuiz(CreateView):
+    model = Quiz
+    fields = '__all__'
+    success_url = '/quiz/' # Redirect to the quiz page after submitting the quiz
