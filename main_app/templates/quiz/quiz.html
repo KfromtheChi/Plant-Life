@@ -2,13 +2,13 @@
 {% block content %}
 
 <center> <h1>WHICH PLANTS ARE BEST?</h1> </center>
-
+<center> <p>TAKE THE QUIZ!</p> </center>
+<hr>
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ quiz }}</span>
         <form action="/submit_quiz" method="post">
             {% csrf_token %}
-            <center> <h3>TAKE THE QUIZ!</h3> </center>
             <p>
                 <label for="question1">1: What is your Hardiness Zone?
                     <a href="https://planthardiness.ars.usda.gov" target="_blank">(Check here)</a>
@@ -29,6 +29,7 @@
                     <option value="12">12</option>
                 </select>
                 <br>
+                <br>
                 <label for="question2">2: How much sun does your gardening space have?
                     <br>
                     Full Sun: 6-8 hours per day, occurs mostly between 10 a.m. and 4 p.m. on most days.
@@ -44,6 +45,7 @@
                     <option value="partial_shade">Partial Shade</option>
                 </select>
                 <br>
+                <br>
                 <label for="question3">3: How often are you able to water your plant(s)?</label>
                 <select id="question3" name="question3">
                     <option value="">--Please choose an option--</option>
@@ -52,6 +54,7 @@
                     <option value="weekly">Once a week</option>
                     <option value="not_sure">Not sure yet</option>
                 </select>
+                <br>
                 <br>
                 <label for="question4">4: What level of plant maintenance are you comfortable caring for?</label>
                 <select id="question4" name="question4">
