@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-position: fixed;
+}
+
+body {
+    background-image: url("../images/iStock-1160795148.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
+}
+
+nav {
+    background-color: rgba(10, 9, 9, 0.459);
+}
