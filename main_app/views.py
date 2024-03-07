@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Plant
 
 # Create your views here.
 
@@ -17,4 +18,13 @@ def quiz(request):
 def plants(request):
     return render(request, 'plants/index.html', {
         'plants': plants
+    })
+# Define the care view
+def care(request):
+    return render(request, 'care.html')
+# Define the plants_detail view
+def plants_detail(request, plant_id):
+    plant = Plant.objects.get(id=plant_id)
+    return render(request, 'plants/detail.html', {
+        'plant': plant
     })
