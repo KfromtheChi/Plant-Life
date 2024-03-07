@@ -7,4 +7,9 @@ def home(request):
     return render(request, 'home.html') # The .html file extension renders the home page template
 # Define the about view
 def about(request):
-    return render(request, 'about.html') # The .html file extension renders the about page template
+    return render(request, 'about.html')
+# Define the plants view
+def plants_index(request):
+    return render(request, 'plants/index.html', {
+        'plants': plants
+    })
