@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Plant
 
 # Create your views here.
@@ -16,6 +17,7 @@ def quiz(request):
     })
 # Define the plants view
 def plants(request):
+    plants = Plant.objects.all()
     return render(request, 'plants/index.html', {
         'plants': plants
     })
@@ -28,3 +30,9 @@ def plants_detail(request, plant_id):
     return render(request, 'plants/detail.html', {
         'plant': plant
     })
+
+# Define the PlantCreate view
+class PlantCreate(CreateView):
+    model = Plant
+    fields = '__all__'
+    success_url = '/plants/' # Redirect to the plants index page after creating a new plant
