@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<style>
+  form, form * {
+    color: black;
+  }
+</style>
 
 <center> <h2>MY PLANTS</h2> </center>
 <hr>
 {% for plant in plants %}
   <div class="card">
-    <a href="{% url 'detail' plant.id %}"></a>
+    <a href="/plants/{{ plant.id }}">
       <div class="card-content">
         <span class="card-title, green-text">{{ plant.name }}</span>
-        <p>Species: {{ plant.species }}</p>
         <p>Botanical Name: {{ plant.botanical_name }}</p>
-        <p>Notes: {{ plant.notes }}</p>
       </div>
     </a>
   </div>
