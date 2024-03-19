@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<center> <h2>PLANT DETAILS</h2> </center>
+<center> <h2>MY PLANT DETAILS</h2> </center>
 
 <div class="card">
   <div class="card-content">
@@ -9,6 +9,10 @@
         <p>Species: {{ plant.species }}</p>
         <p>Botanical Name: {{ plant.botanical }}</p>
         <p>Notes: {{ plant.notes }}</p>
+  </div>
+  <div class="card-action">
+    <a href="{% url 'update' plant.id %}">EDIT</a>
+    <a href="{% url 'delete' plant.id %}">DELETE</a>
   </div>
 </div>
 

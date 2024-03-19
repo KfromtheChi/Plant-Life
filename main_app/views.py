@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Plant, Quiz
 
 # Create your views here.
@@ -31,11 +31,19 @@ def plants_detail(request, plant_id):
         'plant': plant
     })
 
-# Define the PlantCreate view
+# Define the Plant views Create, Update, and Delete
 class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'
     success_url = '/plants/{plant_id}' # Redirect to the plants index page after creating a new plant
+
+class PlantUpdate(UpdateView):
+    model = Plant
+    fields = ['species', 'botanical_name', 'notes']
+
+class PlanrDelete(DeleteView):
+    model: Plant
+    success_url = '/plants' # Redirect to the plants index page after deleting a plant
 
 # Define the submit_quiz view
 class SubmitQuiz(CreateView):
