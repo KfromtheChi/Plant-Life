@@ -16,7 +16,7 @@ def quiz(request):
         'quiz': quiz
     })
 # Define the plants view
-def plants(request):
+def plants_index(request):
     plants = Plant.objects.all()
     return render(request, 'plants/index.html', {
         'plants': plants
@@ -35,7 +35,7 @@ def plants_detail(request, plant_id):
 class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'
-    success_url = '/plants/' # Redirect to the plants index page after creating a new plant
+    success_url = '/plants/{plant_id}' # Redirect to the plants index page after creating a new plant
 
 # Define the submit_quiz view
 class SubmitQuiz(CreateView):
