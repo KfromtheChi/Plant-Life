@@ -41,7 +41,7 @@ class PlantUpdate(UpdateView):
     model = Plant
     fields = ['species', 'botanical_name', 'notes']
 
-class PlanrDelete(DeleteView):
+class PlantDelete(DeleteView):
     model: Plant
     success_url = '/plants' # Redirect to the plants index page after deleting a plant
 
