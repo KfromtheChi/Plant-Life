@@ -2,7 +2,7 @@
 {% block content %}
 
 <center> <h2>MY PLANT DETAILS</h2> </center>
-
+<hr>
 <div class="card">
   <div class="card-content">
         <span class="card-title, green-text">{{ plant.name }}</span>
@@ -10,11 +10,42 @@
         <p>Botanical Name: {{ plant.botanical_name }}</p>
         <p>Notes: {{ plant.notes|linebreaks }}</p>
   </div>
+
   <div class="card-action">
     <a href ="{% url 'update' plant.id %}" class="green-text">EDIT</a>
-    <a href="{% url 'delete' plant.id %}" class="green-text">DELETE</a>
+    <!-- <a href="{% url 'delete' plant.id %}" class="green-text">DELETE</a> -->
+    <!-- The link above ^ is the old link needed to render the delete confirmation template. -->
+    <!-- It is no longer needed since javascript is being used. The link below allows the box to populate and the # prevents the back end from trying to render a new page. -->
+    <a href="#" id="delete" class="green-text">DELETE</a>
   </div>
 </div>
+
+<!-- Because Django can't really do a pop up box, because this is a front end task, javascript needs to be used with some CSS. -->
+<div id="deleteBox" class="box">
+  <div class="box-content">
+    <center>
+      <h4>Are you sure you want to delete your <span class="green-text">{{ plant.name }}</span>?</h4>
+    </center>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      <center> <input type="submit" value="YES - DELETE!"> </center>
+      <center> <a href="{% url 'detail' plant.id %}" class="cancel-link">CANCEL</a> </center>
+    </form>
+  </div>
+</div>
+
+<!-- This javascript functions add an event listener that will tell the box what to do when the delete or cancel buttons are clicked. -->
+<script>
+  document.getElementById('delete').onclick = function() {
+  document.getElementById('deleteBox').style.display = 'block';
+  }
+
+  document.getElementById('cancel').onclick = function() {
+  document.getElementById('deleteBox').style.display = 'none';
+  }
+</script>
+
 <center><a href="{% url 'index' %}" class="back-link">BACK TO MY PLANTS</a></center>
 
 {% endblock %}
