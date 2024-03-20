@@ -35,7 +35,7 @@ def plants_detail(request, plant_id):
 class PlantCreate(CreateView):
     model = Plant
     fields = '__all__'
-    success_url = '/plants/{plant_id}' # Redirect to the plants index page after creating a new plant
+    success_url = '/plants/' # Redirect to the plants index page after creating a new plant
 
 class PlantUpdate(UpdateView):
     model = Plant
@@ -43,7 +43,7 @@ class PlantUpdate(UpdateView):
 
 class PlantDelete(DeleteView):
     model = Plant
-    success_url = '/plants' # Redirect to the plants index page after deleting a plant
+    success_url = '/plants/' # Redirect to the plants index page after deleting a plant
 
 # Define the submit_quiz view
 class SubmitQuiz(CreateView):
