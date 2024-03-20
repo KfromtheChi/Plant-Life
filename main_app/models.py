@@ -29,8 +29,12 @@ class Plant_Care(models.Model):
         max_length=1,
         choices=TYPES,
         default=TYPES[0][0]
-        )
-
+    )
+    # Create a plant_id foreign key
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    
+    def__str__(self):
+        return f'{self.get_type_display()} on {self.date}'
 
 class Quiz(models.Model):
     question1 = models.TextField()
