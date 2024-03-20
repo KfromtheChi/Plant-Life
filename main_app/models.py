@@ -1,8 +1,16 @@
 from django.db import models
 from django.urls import reverse
 
-# Create your models here.
+#Tuple of 2-tuples - options for drop down menus
+TYPES = (
+    ('W', 'Watered'),
+    ('F', 'Fertilized'),
+    ('P', 'Pruned'),
+    ('R', 'Repotted'),
+    ('PC', 'Pest Control'),
+)
 
+# Create your models here.
 class Plant(models.Model):
     name = models.TextField()
     species = models.TextField()
@@ -14,6 +22,15 @@ class Plant(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'plant_id': self.id})
+
+class Plant_Care(models.Model):
+    date = models.DateField()
+    type = models.CharField(
+        max_length=1,
+        choices=TYPES,
+        default=TYPES[0][0]
+        )
+
 
 class Quiz(models.Model):
     question1 = models.TextField()
