@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <center> <h2>MY PLANT DETAILS</h2> </center>
 
 <div class="card">
@@ -12,9 +11,10 @@
         <p>Notes: {{ plant.notes|linebreaks }}</p>
   </div>
   <div class="card-action">
-    <a href ="{% url 'update' plant.id %}">EDIT</a>
-    <a href="{% url 'delete' plant.id %}">DELETE</a>
+    <a href ="{% url 'update' plant.id %}" class="green-text">EDIT</a>
+    <a href="{% url 'delete' plant.id %}" class="green-text">DELETE</a>
   </div>
 </div>
+<center><a href="{% url 'index' %}" class="back-link">BACK TO MY PLANTS</a></center>
 
 {% endblock %}

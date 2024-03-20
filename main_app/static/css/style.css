@@ -42,3 +42,20 @@ footer.page-footer {
     text-align: center;
     height: 50vh;
 }
+
+/* .btn {
+    color: black;
+    background-color: lightgray;
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.btn:hover {
+    background-color: green;
+} */
+
+.back-link {
+  text-decoration: underline;
+  color:green;
+}
