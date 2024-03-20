@@ -42,7 +42,7 @@ class PlantUpdate(UpdateView):
     fields = ['species', 'botanical_name', 'notes']
 
 class PlantDelete(DeleteView):
-    model: Plant
+    model = Plant
     success_url = '/plants' # Redirect to the plants index page after deleting a plant
 
 # Define the submit_quiz view

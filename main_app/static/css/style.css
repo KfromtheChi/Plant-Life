@@ -59,3 +59,8 @@ footer.page-footer {
   text-decoration: underline;
   color:green;
 }
+
+.cancel-link {
+  text-decoration: underline;
+  color: green;
+}

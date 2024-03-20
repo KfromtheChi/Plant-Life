@@ -3,6 +3,18 @@ from django.urls import reverse
 
 # Create your models here.
 
+class Plant(models.Model):
+    name = models.TextField()
+    species = models.TextField()
+    botanical_name = models.TextField()
+    notes = models.TextField()
+
+    def __str__(self):
+        return f'{self.name} ({self.id})'
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'plant_id': self.id})
+
 class Quiz(models.Model):
     question1 = models.TextField()
     question2 = models.TextField()
@@ -33,15 +45,3 @@ class QuizSubmit(models.Model):
         ('moderate', 'Moderate'),
         ('high', 'High'),
     ]
-
-class Plant(models.Model):
-    name = models.TextField()
-    species = models.TextField()
-    botanical_name = models.TextField()
-    notes = models.TextField()
-
-    def __str__(self):
-        return f'{self.name} ({self.id})'
-
-    def get_absolute_url(self):
-        return reverse('detail', kwargs={'plant_id': self.id})
