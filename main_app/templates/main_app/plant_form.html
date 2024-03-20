@@ -27,6 +27,7 @@
       <center> <a href="{% url 'detail' plant.id %}" class="cancel-link">CANCEL</a> </center>
     {% else %}
       <center> <input type="submit" value="ADD +"> </center>
+      <center> <a href="{% url 'index' %}" class="cancel-link">CANCEL</a> </center>
     {% endif %}
     
   </form>

@@ -43,7 +43,7 @@ footer.page-footer {
     height: 50vh;
 }
 
-/* .btn {
+.btn {
     color: black;
     background-color: lightgray;
     text-decoration: none;
@@ -53,7 +53,7 @@ footer.page-footer {
 
 .btn:hover {
     background-color: green;
-} */
+}
 
 .back-link {
   text-decoration: underline;
@@ -83,4 +83,8 @@ footer.page-footer {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+
+.delete:hover {
+    background-color: green;
 }
