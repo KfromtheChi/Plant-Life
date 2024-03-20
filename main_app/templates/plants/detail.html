@@ -20,6 +20,7 @@
   </div>
 </div>
 
+<!-- Added for the delete confirmation pop up box (delete_confirm_form.html commented out). -->
 <!-- Because Django can't really do a pop up box, because this is a front end task, javascript needs to be used with some CSS. -->
 <div id="deleteBox" class="box">
   <div class="box-content">
@@ -27,7 +28,8 @@
       <h4>Are you sure you want to delete your <span class="green-text">{{ plant.name }}</span>?</h4>
     </center>
 
-    <form action="" method="POST">
+    <!-- form action is the delete url here as it tells the post request to trigger the delete. -->
+    <form action="{% url 'delete' plant.id %}" method="POST">  
       {% csrf_token %}
       <center> <input type="submit" value="YES - DELETE!"> </center>
       <center> <a href="{% url 'detail' plant.id %}" class="cancel-link">CANCEL</a> </center>
