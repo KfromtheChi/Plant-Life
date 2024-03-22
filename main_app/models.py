@@ -26,14 +26,14 @@ class Plant(models.Model):
 class Plant_Care(models.Model):
     date = models.DateField()
     type = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=TYPES,
         default=TYPES[0][0]
     )
     # Create a plant_id foreign key
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     
-    def__str__(self):
+    def __str__(self):
         return f'{self.get_type_display()} on {self.date}'
 
 class Quiz(models.Model):
