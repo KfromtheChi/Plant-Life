@@ -76,6 +76,18 @@
     }
   </script>
 
+  <!-- Date Picker in Plant Care Form -->
+  <script>
+    const dateEl = document.getElementById('id_date');
+    // M is Materialize's global variable
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+    });
+  </script>
+
 <!-- 'Back to Plants' link -->
   <center><a href="{% url 'index' %}" class="back-link">BACK TO MY PLANTS</a></center>
 
