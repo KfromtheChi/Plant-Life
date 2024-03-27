@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Plant, Quiz
+from .models import Plant, Plant_Care, Quiz
+from .forms import Plant_CareForm
 
 # Create your views here.
 
@@ -27,10 +28,10 @@ def care(request):
 # Define the plants_detail view
 def plants_detail(request, plant_id):
     plant = Plant.objects.get(id=plant_id)
-    # instantiate the Plant_CareForm tobe rendered in the template
-    plant_care_form = Plant_CareForm()
+    # instantiate the Plant_CareForm to be rendered in the template
+    care_form = Plant_CareForm()
     return render(request, 'plants/detail.html', {
-        'plant': plant, 'plant_care_form': plant_care_form
+        'plant': plant, 'plant_care_form': care_form
     })
 
 # Define the Plant views Create, Update, and Delete
