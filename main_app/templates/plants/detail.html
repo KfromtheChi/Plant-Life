@@ -5,14 +5,14 @@
   <hr>
 
   <!-- Plant Details -->
-  <div class="row">
-    <div class="col s6">
+  <!-- <div class="row">
+    <div class="col s6"> -->
       <div class="card">
         <div class="card-content">
-          <span class="card-title, green-text">{{ plant.name }}</span>
-          <p>Species: {{ plant.species }}</p>
-          <p>Botanical Name: {{ plant.botanical_name }}</p>
-          <p>Notes: {{ plant.notes|linebreaks }}</p>
+          <h5> <span class="card-title, green-text"><strong>{{ plant.name }}</strong></span> </h5>
+          <p><strong>Species:</strong> {{ plant.species }}</p>
+          <p><strong>Botanical Name:</strong> {{ plant.botanical_name }}</p>
+          <p><strong>Notes:</strong> {{ plant.notes|linebreaks }}</p>
         </div>
         <div class="card-action">
           <center>
@@ -23,33 +23,33 @@
             <a href="#" id="delete" class="green-text">DELETE</a>
           </center>
         </div>
+
+        <!-- Plant Care Schedule -->
+        <!-- plant care form -->
+        <form method="POST">
+          {% csrf_token %}
+          <!-- Render the inputs -->
+          {{ plant_care_form.as_p }}
+          <center> <input type="submit" class="btn" value="+"> </center>
+        </form>
+        <br>
+        <table class="striped">
+          <thead>
+            <tr><th>Date</th><th>Care</th></tr>
+          </thead>
+          <tbody>
+            {% for plant_care in plant.plant_care_set.all %}
+              <tr>
+                <td>{{plant_care.date}}</td>
+                <td>{{plant_care.get_type_display}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>  
   </div>
 
-  <!-- Plant Care Schedule -->
-  <div class="col s6">
-    <!-- plant care form -->
-    <form method="POST">
-      {% csrf_token %}
-      <!-- Render the inputs -->
-      {{ plant_care_form.as_p }}
-      <center> <input type="submit" class="btn" value="+"> </center>
-    </form>
-    <table class="striped">
-      <thead>
-        <tr><th>Date</th><th>Care</th></tr>
-      </thead>
-      <tbody>
-        {% for plant_care in plant.plant_care_set.all %}
-          <tr>
-            <td>{{plant_care.date}}</td>
-            <td>{{plant_care.get_type_display}}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
 
   <!-- Delete confirm pop up box  -->
   <!-- (delete_confirm_form.html commented out) -->
@@ -96,9 +96,9 @@
       M.FormSelect.init(selectEl);
     </script>
   </div>
-<br>
-<br>
-<!-- 'Back to Plants' link -->
+  <br>
+  <br>
+  <!-- 'Back to Plants' link -->
   <center><a href="{% url 'index' %}" class="back-link">BACK TO MY PLANTS</a></center>
 
 {% endblock %}
