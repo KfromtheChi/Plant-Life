@@ -23,15 +23,15 @@ def plants_index(request):
         'plants': plants
     })
 # Define the care view
-def care(request):
-    return render(request, 'care.html')
+def care_tips(request):
+    return render(request, 'tips.html')
 # Define the plants_detail view
 def plants_detail(request, plant_id):
     plant = Plant.objects.get(id=plant_id)
     # instantiate the Plant_CareForm to be rendered in the template
-    care_form = Plant_CareForm()
+    plant_care_form = Plant_CareForm()
     return render(request, 'plants/detail.html', {
-        'plant': plant, 'plant_care_form': care_form
+        'plant': plant, 'plant_care_form': plant_care_form
     })
 
 # Define the Plant views Create, Update, and Delete

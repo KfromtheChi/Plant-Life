@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     # this route will display the about page
     path('about/', views.about, name='about'),
-    path('care/', views.care, name='care'),
+    path('care/', views.care_tips, name='tips'),
     path('plants/', views.plants_index, name='index'),
     path('plants/<int:plant_id>/', views.plants_detail, name='detail'),
     path('plants/create/', views.PlantCreate.as_view(), name='create'),
