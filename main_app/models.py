@@ -24,7 +24,7 @@ class Plant(models.Model):
         return reverse('detail', kwargs={'plant_id': self.id})
 
 class Plant_Care(models.Model):
-    date = models.DateField('plant_care date')
+    date = models.DateField('date')
     type = models.CharField(
         max_length=2,
         choices=TYPES,

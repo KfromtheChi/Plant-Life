@@ -15,11 +15,13 @@
           <p>Notes: {{ plant.notes|linebreaks }}</p>
         </div>
         <div class="card-action">
-          <a href ="{% url 'update' plant.id %}" class="green-text">EDIT</a>
-          <!-- <a href="{% url 'delete' plant.id %}" class="green-text">DELETE</a> -->
-          <!-- The link above ^ is the old link needed to render the delete confirmation template. -->
-          <!-- It is no longer needed since javascript is being used. The link below allows the box to populate and the # prevents the back end from trying to render a new page. -->
-          <a href="#" id="delete" class="green-text">DELETE</a>
+          <center>
+            <a href ="{% url 'update' plant.id %}" class="green-text">EDIT</a>
+            <!-- <a href="{% url 'delete' plant.id %}" class="green-text">DELETE</a> -->
+            <!-- The link above ^ is the old link needed to render the delete confirmation template. -->
+            <!-- It is no longer needed since javascript is being used. The link below allows the box to populate and the # prevents the back end from trying to render a new page. -->
+            <a href="#" id="delete" class="green-text">DELETE</a>
+          </center>
         </div>
       </div>
     </div>  
@@ -32,7 +34,7 @@
       {% csrf_token %}
       <!-- Render the inputs -->
       {{ plant_care_form.as_p }}
-      <input type="submit" class="btn" value="+">
+      <center> <input type="submit" class="btn" value="+"> </center>
     </form>
     <table class="striped">
       <thead>
@@ -76,18 +78,26 @@
     }
   </script>
 
-  <!-- Date Picker in Plant Care Form -->
-  <script>
-    const dateEl = document.getElementById('id_date');
-    // M is Materialize's global variable
-    M.Datepicker.init(dateEl, {
-      format: 'yyyy-mm-dd',
-      defaultDate: new Date(),
-      setDefaultDate: true,
-      autoClose: true
-    });
-  </script>
+  <!-- Add plant care form -->
+  <div id="addCare" class="">
+    <script>
+      // Date-picker
+      const dateEl = document.getElementById('id_date');
+      // M is Materialize's global variable
+      M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+      });
 
+      // Care-type selector
+      const selectEl = document.getElementById('id_type');
+      M.FormSelect.init(selectEl);
+    </script>
+  </div>
+<br>
+<br>
 <!-- 'Back to Plants' link -->
   <center><a href="{% url 'index' %}" class="back-link">BACK TO MY PLANTS</a></center>
 
