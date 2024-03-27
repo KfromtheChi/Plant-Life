@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Plant, Plant_Care, Quiz
+from .models import Plant, Quiz
 from .forms import Plant_CareForm
 
 # Create your views here.

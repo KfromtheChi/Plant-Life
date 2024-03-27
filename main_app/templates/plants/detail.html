@@ -27,6 +27,13 @@
 
   <!-- Plant Care Schedule -->
   <div class="col s6">
+    <!-- plant care form -->
+    <form method="POST">
+      {% csrf_token %}
+      <!-- Render the inputs -->
+      {{ plant_care_form.as_p }}
+      <input type="submit" class="btn" value="+">
+    </form>
     <table class="striped">
       <thead>
         <tr><th>Date</th><th>Care</th></tr>
